@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/trainee-future", {
-  useNewUrlParser: true,
+  useNewUrlParser: true
 });
 const db = mongoose.connection;
 db.on("error", function() {
@@ -11,42 +11,41 @@ db.once("open", function() {
   console.log("mongoose connected successfully");
   console.log("____________________________");
 });
+//-----------------------------------ALL SCHEMA
 
-//-----------------------------------TRAINEE SCHEMA
-let traineesSchema = new mongoose.Schema({
-  fullName:String,
-  email:String,
-  gender:String,
-  university:String,
-  password:String,
-  img_path:String,
-  field:String,
-    
-    comp_info:[{companiesSchema}]
+let allSchema = new mongoose.Schema({
+  trainees: [
+    {
+      fullName: String,
+      email: String,
+      gender: String,
+      university: String,
+      password: String,
+      img_path: String,
+      field: String
+    }
+  ],
 
+  companies: [
+    {
+      name: String,
+      email: String,
+      password: String,
+      website: String,
+      city: String,
+      location: String,
+      comp_description: String,
+      field: String,
+
+      post: [
+        {
+          field: String,
+          job_description: String,
+
+          comments: [{ body: String }]
+        }
+      ]
+    }
+  ]
 });
-let Trainee = mongoose.model("trainee", traineesSchema);
-
-//----------------------------------------COMPANY SCHEMA
-
-let companiesSchema = new mongoose.Schema({
-  name:String,
-  email:String,
-  password:String,
-  website:String,
-  city:String,
-  location:String,
-  comp_description:String,
-  field:String,
-
-
-   post:[{
-     field:String,
-     job_description:String,
-       
-          comments:[{body:String}]
-
-          }]
-
-});
-let Company = mongoose.model("company", companiesSchema);
+let AllSchema = mongoose.model("allschema", allSchema);
