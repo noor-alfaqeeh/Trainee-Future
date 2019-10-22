@@ -13,9 +13,7 @@ db.once("open", function() {
 });
 //-----------------------------------ALL SCHEMA
 
-let allSchema = new mongoose.Schema({
-  trainees: [
-    {
+let trainee = new mongoose.Schema({
       fullName: String,
       email: String,
       gender: String,
@@ -23,11 +21,9 @@ let allSchema = new mongoose.Schema({
       password: String,
       img_path: String,
       field: String
-    }
-  ],
+})
 
-  companies: [
-    {
+let companies = new mongoose.Schema({
       name: String,
       email: String,
       password: String,
@@ -37,7 +33,6 @@ let allSchema = new mongoose.Schema({
       comp_description: String,
       img_path: String,
       field: String,
-
       post: [
         {
           field: String,
@@ -46,7 +41,6 @@ let allSchema = new mongoose.Schema({
           comments: [{ body: String }]
         }
       ]
-    }
-  ]
 });
-let AllSchema = mongoose.model("allschema", allSchema);
+let Trainee = mongoose.model("trainee", trainee);
+let Companies = mongoose.model("companies", companies);
