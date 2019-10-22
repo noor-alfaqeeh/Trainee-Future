@@ -35,6 +35,7 @@ let allSchema = new mongoose.Schema({
       city: String,
       location: String,
       comp_description: String,
+      img_path: String,
       field: String,
 
       post: [
