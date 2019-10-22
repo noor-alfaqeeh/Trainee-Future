@@ -1,25 +1,25 @@
 import React from 'react';
+import Student from "./components/Noor/Noor";
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends React.Component {
+  state = {};
+  render() {
+  
+    return (
+      
+      <div className='container'>
+        <h1>Landing Page</h1>
+        <Student/>
+       
+      </div>
+     
+    );
+  }
 }
 
 export default App;
