@@ -37,8 +37,6 @@ let companies = new mongoose.Schema({
         {
           job_description: String,
           field: String,
-         
-
           comments: [{ body: String }]
         }
       ]
